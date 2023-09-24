@@ -2,7 +2,7 @@ import { NavLink } from "react-router-dom";
 
 const Navbar = () => {
   return (
-    <div className="flex flex-col md:flex-row  justify-between items-center py-4">
+    <div className="flex flex-col md:flex-row  justify-between items-center py-4 ">
       <div>
         <img src="../../../public/Logo.png" alt="" />
       </div>
