@@ -1,6 +1,9 @@
+import { useState } from "react";
 import { useLoaderData, useParams } from "react-router-dom";
+import Swal from "sweetalert2";
 
 const CardDetails = () => {
+  const { cards, setCards } = useState([]);
   const cardsData = useLoaderData();
   const { id } = useParams();
   console.log(cardsData, id);
@@ -16,6 +19,29 @@ const CardDetails = () => {
     card_bg,
     text_background,
   } = card || {};
+  const handleDonateButton = () => {
+    const data = [];
+    const storedData = JSON.parse(localStorage.getItem("card"));
+    if (!storedData) {
+      data.push(card);
+      localStorage.setItem("card", JSON.stringify(data));
+      Swal.fire("Success", "Your donation is added", "success");
+    } else {
+      const isExits = storedData.find((card) => card.id == id);
+      if (!isExits) {
+        data.push(...storedData, card);
+        localStorage.setItem("card", JSON.stringify(data));
+        Swal.fire("Success", "your Donation is added", "success");
+      } else {
+        // alert("duplicate");
+        Swal.fire(
+          "Alert!",
+          "You already added this donation. Donate in another category",
+          "error"
+        );
+      }
+    }
+  };
 
   return (
     <div>
@@ -30,9 +56,10 @@ const CardDetails = () => {
             <div className="absolute bottom-0 w-full lg:h-1/5 bg-[#0B0B0B80] opacity-90 rounded-lg"></div>
           </div>
         </div>
-        <div className=" absolute left-10 -bottom-6 lg:left-40 lg:bottom-20">
+        <div className=" absolute left-10 -bottom-6 lg:left-40 lg:bottom-[70px]">
           <button
-            className="text-white p-4 rounded"
+            onClick={handleDonateButton}
+            className="text-white text-xl font-semibold p-4 rounded"
             style={{ backgroundColor: text_background }}
           >
             Donate ${donation_amount}{" "}
