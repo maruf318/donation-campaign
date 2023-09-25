@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import React, { PureComponent } from "react";
+import { useLoaderData } from "react-router-dom";
 import {
   PieChart,
   Pie,
@@ -11,22 +12,28 @@ import {
 
 const Statistics = () => {
   const [donations, setDonations] = useState([]);
+  const [myDonation, setMyDonation] = useState(0);
   const [donationAmount, setDonationAmount] = useState(0);
+  const donationCards = useLoaderData();
   useEffect(() => {
     const donationItems = JSON.parse(localStorage.getItem("card"));
-    if (donationItems) {
-      setDonations(donationItems);
-      const totalAmount = donationItems.reduce(
-        (previous, current) => previous + current.donation_amount,
-        0
-      );
-      setDonationAmount(totalAmount);
-      // console.log(donationAmount);
-    }
-  }, [donationAmount]);
+    // if (donationItems) {
+    //   setDonations(donationItems);
+    //   const totalAmount = donationItems.reduce(
+    //     (previous, current) => previous + current.donation_amount,
+    //     0
+    //   );
+    setDonationAmount(donationItems);
+    // console.log(donationItems.length);
+    // }
+  }, []);
+  // console.log(donationAmount.length, donationCards.length);
   const data = [
-    { name: "Group A", value: 100 - 20 },
-    { name: "Group B", value: 20 },
+    {
+      name: "Total Donation",
+      value: donationCards.length - donationAmount.length,
+    },
+    { name: "Your Donation", value: donationAmount.length },
   ];
 
   const COLORS = ["#FF444A", "#00C49F"];
