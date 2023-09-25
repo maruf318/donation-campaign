@@ -3,7 +3,6 @@ import { useLoaderData, useParams } from "react-router-dom";
 import Swal from "sweetalert2";
 
 const CardDetails = () => {
-  const { cards, setCards } = useState([]);
   const cardsData = useLoaderData();
   const { id } = useParams();
   console.log(cardsData, id);
