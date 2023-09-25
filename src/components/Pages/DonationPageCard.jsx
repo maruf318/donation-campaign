@@ -13,7 +13,7 @@ const DonationPageCard = ({ donation }) => {
     text_background,
   } = donation || {};
   return (
-    <div>
+    <div className="max-w-7xl mx-auto px-2">
       <div
         className="relative flex w-full max-w-[48rem] flex-row rounded-xl  bg-clip-border  shadow-md"
         style={{ backgroundColor: card_bg }}

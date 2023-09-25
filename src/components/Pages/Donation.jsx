@@ -15,7 +15,7 @@ const Donation = () => {
   }, []);
 
   return (
-    <div className="my-6">
+    <div className="my-6 max-w-7xl mx-auto px-2">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         {isShow
           ? donations.map((donation) => (

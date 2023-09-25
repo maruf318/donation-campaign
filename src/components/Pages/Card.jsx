@@ -13,7 +13,7 @@ const Card = ({ card }) => {
     text_background,
   } = card || {};
   return (
-    <div>
+    <div className="max-w-7xl mx-auto px-2">
       <Link to={`/card/${id}`}>
         <div
           className="card h-[283px] m-2 lg:m-0 card-compact shadow-xl"

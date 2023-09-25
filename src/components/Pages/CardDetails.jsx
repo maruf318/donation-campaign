@@ -43,7 +43,7 @@ const CardDetails = () => {
   };
 
   return (
-    <div>
+    <div className="max-w-7xl mx-auto px-2">
       <div>
         <div className="relative">
           <div className="w-full h-[80vh] rounded-xl relative">
