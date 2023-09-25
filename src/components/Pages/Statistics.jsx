@@ -11,7 +11,7 @@ import {
 } from "recharts";
 
 const Statistics = () => {
-  const [donations, setDonations] = useState([]);
+  const [donations, setDonations] = useState(0);
   const [myDonation, setMyDonation] = useState(0);
   const [donationAmount, setDonationAmount] = useState(0);
   const donationCards = useLoaderData();
@@ -21,19 +21,24 @@ const Statistics = () => {
     //   setDonations(donationItems);
     //   const totalAmount = donationItems.reduce(
     //     (previous, current) => previous + current.donation_amount,
-    //     0
+    //
     //   );
-    setDonationAmount(donationItems);
+    setDonations(donationCards.length);
+    if (donationItems) {
+      setDonationAmount(donationItems.length);
+    }
+
     // console.log(donationItems.length);
     // }
-  }, []);
-  // console.log(donationAmount.length, donationCards.length);
+  }, [donationCards.length]);
+
+  console.log(donations, donationAmount);
   const data = [
     {
       name: "Total Donation",
-      value: donationCards.length - donationAmount.length,
+      value: donations - donationAmount,
     },
-    { name: "Your Donation", value: donationAmount.length },
+    { name: "Your Donation", value: donationAmount },
   ];
 
   const COLORS = ["#FF444A", "#00C49F"];
@@ -56,10 +61,12 @@ const Statistics = () => {
         x={x}
         y={y}
         fill="white"
+        fontSize={"18px"}
+        fontWeight="700"
         textAnchor={x > cx ? "start" : "end"}
         dominantBaseline="central"
       >
-        {`${(percent * 100).toFixed(0)}%`}
+        {`${(percent * 100).toFixed(1)}%`}
       </text>
     );
   };
@@ -85,8 +92,13 @@ const Statistics = () => {
               />
             ))}
           </Pie>
-          <Legend></Legend>
         </PieChart>
+      </div>
+      <div className="text-center flex justify-center gap-4">
+        <p className="text-[#0B0B0B] text-lg">Your Donation</p>
+        <p className="w-24 justify-center items-center rounded-sm h-3 mt-2 bg-[#00C49F]"></p>
+        <p className="text-[#0B0B0B] text-lg">Total Donation</p>
+        <p className="w-24 justify-center items-center rounded-sm h-3 mt-2 bg-[#FF444A]"></p>
       </div>
     </div>
   );

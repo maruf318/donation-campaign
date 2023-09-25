@@ -36,7 +36,7 @@ const Banner = ({ donationCards, handleSearch }) => {
       >
         <div className="hero-overlay bg-opacity-90 bg-white"></div>
         <div className="hero-content text-center text-neutral-content">
-          <div className="max-w-3xl ">
+          <div className="max-w-4xl ">
             <h1 className="mb-5 text-[#0B0B0B] text-3xl lg:text-5xl font-bold">
               I Grow By Helping People In Need
             </h1>
