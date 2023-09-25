@@ -3,26 +3,44 @@ import DonationPageCard from "./DonationPageCard";
 
 const Donation = () => {
   const [donations, setDonations] = useState([]);
-  const [noFound, setNofound] = useState(false);
+  const [notFound, setNotfound] = useState(false);
+  const [isShow, setIsShow] = useState(false);
   useEffect(() => {
     const storedData = JSON.parse(localStorage.getItem("card"));
     if (storedData) {
       setDonations(storedData);
     } else {
-      setNofound("No Data Found");
+      setNotfound("No Data Found");
     }
   }, []);
 
   return (
     <div className="my-6">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-        {donations.map((donation) => (
-          <DonationPageCard
-            key={donation.id}
-            donation={donation}
-          ></DonationPageCard>
-        ))}
+        {isShow
+          ? donations.map((donation) => (
+              <DonationPageCard
+                key={donation.id}
+                donation={donation}
+              ></DonationPageCard>
+            ))
+          : donations
+              .slice(0, 4)
+              .map((donation) => (
+                <DonationPageCard
+                  key={donation.id}
+                  donation={donation}
+                ></DonationPageCard>
+              ))}
       </div>
+      {donations.length >= 4 && (
+        <button
+          onClick={() => setIsShow(!isShow)}
+          className="mt-8 bg-[#009444] font-semibold py-3 px-6 text-white rounded-lg block mx-auto"
+        >
+          {isShow ? "See less" : "See more"}
+        </button>
+      )}
     </div>
   );
 };
