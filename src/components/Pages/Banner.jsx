@@ -1,31 +1,5 @@
-import { useEffect, useState } from "react";
-
-const Banner = ({ donationCards, handleSearch }) => {
-  // console.log(donationCards);
-  const [searchInput, setSearchInput] = useState("");
-  const [test, setTest] = useState([]);
-  // const handleSearch = (e) => {
-  //   e.preventDefault();
-  //   setSearchInput(e.target.searchName.value);
-  // };
-  // console.log(searchInput);
-  // if (searchInput.length > 0) {
-  //   useEffect(() => {
-  //     const aatest = donationCards.filter((card) => {
-  //       // console.log(card.category == "Food");
-  //       card.category == searchInput;
-  //     });
-  //     setTest(...test, aatest);
-  //   }, []);
-  // }
-  // if (searchInput.length > 0) {
-  //   const aatest = donationCards.filter((card) => {
-  //     // console.log(card.category == "Food");
-  //     card.category == searchInput;
-  //   });
-  //   setTest(...test, aatest);
-  // }
-  // console.log(test);
+import PropTypes from "prop-types";
+const Banner = ({ handleSearch }) => {
   return (
     <div className="mb-2 md:mb-7 ">
       <div
@@ -60,9 +34,6 @@ const Banner = ({ donationCards, handleSearch }) => {
                     type="submit"
                     value="Search"
                   />
-                  {/* <button className="btn capitalize btn-square  px-12 bg-[#FF444A] text-white">
-                  Search
-                </button> */}
                 </form>
               </div>
             </div>
@@ -72,5 +43,7 @@ const Banner = ({ donationCards, handleSearch }) => {
     </div>
   );
 };
-
+Banner.propTypes = {
+  handleSearch: PropTypes.func,
+};
 export default Banner;

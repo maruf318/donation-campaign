@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { useLoaderData, useParams } from "react-router-dom";
 import Swal from "sweetalert2";
 
@@ -10,12 +9,11 @@ const CardDetails = () => {
   console.log(card);
   const {
     title,
-    category,
+
     image,
     donation_amount,
     description,
-    category_bg,
-    card_bg,
+
     text_background,
   } = card || {};
   const handleDonateButton = () => {

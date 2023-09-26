@@ -3,15 +3,16 @@ import DonationPageCard from "./DonationPageCard";
 
 const Donation = () => {
   const [donations, setDonations] = useState([]);
-  const [notFound, setNotfound] = useState(false);
+  // const [notFound, setNotfound] = useState(false);
   const [isShow, setIsShow] = useState(false);
   useEffect(() => {
     const storedData = JSON.parse(localStorage.getItem("card"));
     if (storedData) {
       setDonations(storedData);
-    } else {
-      setNotfound("No Data Found");
     }
+    // else {
+    //   setNotfound("No Data Found");
+    // }
   }, []);
 
   return (

@@ -6,7 +6,6 @@ import { useEffect, useState } from "react";
 const Home = () => {
   const [searchInput, setSearchInput] = useState("");
   const [test, setTest] = useState([]);
-  // const [filterCard, SetfilterCard] = useState([]);
 
   const donationCards = useLoaderData();
   useEffect(() => {
@@ -20,23 +19,16 @@ const Home = () => {
         setTest(donationCards);
       }
     }
-    // setTest(data);
-  }, [donationCards, searchInput]);
-  console.log(test);
+  }, [donationCards, searchInput, test]);
+
   const handleSearch = (e) => {
     e.preventDefault();
     setSearchInput(e.target.searchName.value);
-    // };
   };
-  // console.log(searchInput);
 
-  // console.log(donationCards);
   return (
     <div className="">
-      <Banner
-        handleSearch={handleSearch}
-        donationCards={donationCards}
-      ></Banner>
+      <Banner handleSearch={handleSearch}></Banner>
       <Cards donationCards={test}></Cards>
     </div>
   );

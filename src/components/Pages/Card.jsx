@@ -1,17 +1,8 @@
 import { Link } from "react-router-dom";
-
+import PropTypes from "prop-types";
 const Card = ({ card }) => {
-  const {
-    id,
-    title,
-    category,
-    image,
-    donation_amount,
-    description,
-    category_bg,
-    card_bg,
-    text_background,
-  } = card || {};
+  const { id, title, category, image, category_bg, card_bg, text_background } =
+    card || {};
   return (
     <div className="max-w-7xl mx-auto px-2">
       <Link to={`/card/${id}`}>
@@ -41,5 +32,7 @@ const Card = ({ card }) => {
     </div>
   );
 };
-
+Card.propTypes = {
+  card: PropTypes.object,
+};
 export default Card;

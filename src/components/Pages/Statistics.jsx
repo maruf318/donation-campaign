@@ -1,35 +1,20 @@
 import { useEffect, useState } from "react";
-import React, { PureComponent } from "react";
+
 import { useLoaderData } from "react-router-dom";
-import {
-  PieChart,
-  Pie,
-  Sector,
-  Cell,
-  ResponsiveContainer,
-  Legend,
-} from "recharts";
+import { PieChart, Pie, Cell } from "recharts";
 
 const Statistics = () => {
   const [donations, setDonations] = useState(0);
-  const [myDonation, setMyDonation] = useState(0);
+
   const [donationAmount, setDonationAmount] = useState(0);
   const donationCards = useLoaderData();
   useEffect(() => {
     const donationItems = JSON.parse(localStorage.getItem("card"));
-    // if (donationItems) {
-    //   setDonations(donationItems);
-    //   const totalAmount = donationItems.reduce(
-    //     (previous, current) => previous + current.donation_amount,
-    //
-    //   );
+
     setDonations(donationCards.length);
     if (donationItems) {
       setDonationAmount(donationItems.length);
     }
-
-    // console.log(donationItems.length);
-    // }
   }, [donationCards.length]);
 
   console.log(donations, donationAmount);
