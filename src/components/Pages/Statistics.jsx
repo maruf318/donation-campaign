@@ -59,14 +59,14 @@ const Statistics = () => {
   return (
     <div className="max-w-7xl mx-auto px-2">
       <div className="flex justify-center">
-        <PieChart width={450} height={450}>
+        <PieChart width={400} height={400}>
           <Pie
             data={data}
             cx="50%"
             cy="50%"
             labelLine={false}
             label={renderCustomizedLabel}
-            outerRadius="80%"
+            outerRadius="70%"
             fill="#8884d8"
             dataKey="value"
           >
@@ -79,11 +79,15 @@ const Statistics = () => {
           </Pie>
         </PieChart>
       </div>
-      <div className="text-center flex justify-center gap-4">
-        <p className="text-[#0B0B0B] text-lg">Your Donation</p>
-        <p className="w-24 justify-center items-center rounded-sm h-3 mt-2 bg-[#00C49F]"></p>
-        <p className="text-[#0B0B0B] text-lg">Total Donation</p>
-        <p className="w-24 justify-center items-center rounded-sm h-3 mt-2 bg-[#FF444A]"></p>
+      <div className="text-center flex justify-center gap-4 mb-6">
+        <div className="flex gap-4  md:flex-row flex-col">
+          <p className="text-[#0B0B0B] text-lg">Your Donation</p>
+          <p className="w-12 lg:w-24 justify-center items-center rounded-sm h-3 mt-2 bg-[#00C49F]"></p>
+        </div>
+        <div className="flex  gap-4 md:flex-row flex-col">
+          <p className="text-[#0B0B0B] text-lg">Total Donation</p>
+          <p className="w-12 lg:w-24 justify-center items-center rounded-sm h-3 mt-2 bg-[#FF444A]"></p>
+        </div>
       </div>
     </div>
   );

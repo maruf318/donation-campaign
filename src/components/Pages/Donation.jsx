@@ -34,7 +34,7 @@ const Donation = () => {
                 ></DonationPageCard>
               ))}
       </div>
-      {donations.length >= 4 && (
+      {donations.length > 4 && (
         <button
           onClick={() => setIsShow(!isShow)}
           className="mt-8 bg-[#009444] font-semibold py-3 px-6 text-white rounded-lg block mx-auto"
