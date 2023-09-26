@@ -1,4 +1,4 @@
-Three Project features: /n
+**Three Project features:**
 
 1. Donate to different facilities (Food, Health, Education and Clothing)
 2. Your Donation will be shown as a pie chart on Statistics page.
