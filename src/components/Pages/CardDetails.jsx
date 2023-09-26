@@ -50,10 +50,19 @@ const CardDetails = () => {
               src={image}
               alt=""
             />
-            <div className="absolute bottom-0 w-full lg:h-1/5 bg-[#0B0B0B80] opacity-90 rounded-lg"></div>
+            <div className="absolute bottom-0 w-full h-2/5 lg:h-1/5 bg-[#0B0B0B80] opacity-90 rounded-lg"></div>
+          </div>
+          <div className=" absolute left-10 bottom-6 lg:left-10 lg:bottom-7">
+            <button
+              onClick={handleDonateButton}
+              className="text-white text-xl font-semibold p-4 rounded"
+              style={{ backgroundColor: text_background }}
+            >
+              Donate ${donation_amount}{" "}
+            </button>
           </div>
         </div>
-        <div className=" absolute left-10 -bottom-6 lg:left-40 lg:bottom-[70px]">
+        {/* <div className=" absolute left-10 -bottom-6 lg:left-40 lg:bottom-[70px]">
           <button
             onClick={handleDonateButton}
             className="text-white text-xl font-semibold p-4 rounded"
@@ -61,7 +70,7 @@ const CardDetails = () => {
           >
             Donate ${donation_amount}{" "}
           </button>
-        </div>
+        </div> */}
         <h2 className="text-[#0B0B0B] my-6 text-4xl font-bold ">{title}</h2>
         <p className="text-[#0B0B0BB3] mb-6 p-2 lg:p-0">{description}</p>
       </div>

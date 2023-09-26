@@ -8,7 +8,7 @@ const Navbar = () => {
         <img src="https://i.ibb.co/h14YSSq/Logo.png" alt="" />
       </div>
       <div>
-        <ul className="flex justify-center items-center gap-4">
+        <ul className="flex justify-center items-center gap-4 mt-8 md:mt-0">
           <li>
             <NavLink
               to="/"

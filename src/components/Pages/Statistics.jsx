@@ -17,7 +17,6 @@ const Statistics = () => {
     }
   }, [donationCards.length]);
 
-  console.log(donations, donationAmount);
   const data = [
     {
       name: "Total Donation",
